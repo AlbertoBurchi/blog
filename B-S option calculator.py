@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Mar 10 00:59:07 2018
-
-@author: MILA
-"""
-
 import random
 from math import sqrt, exp
 import numpy as np
@@ -81,5 +74,3 @@ class Option(object):
             plt.show()
         else:
             print('no such option')
-    
-v_1 = Option(40, 42, 0.1, 180, 0.2, 1000)
