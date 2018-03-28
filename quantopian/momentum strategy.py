@@ -1,3 +1,10 @@
+'''
+1) The strategy is based on the following idea: each month across 1500 US Stocks select 50 stocks with the highest momentum: percentage difference between 30 and 120-day 
+Exponentialy Weighted Moving Average
+
+2) Buy one stock per sector (11 sectors in total) proportional to its momentum's strength, sell half of the existing stocks if they drop from the momentum screen
+
+'''
 from quantopian.pipeline import Pipeline
 from quantopian.algorithm import attach_pipeline, pipeline_output
 from quantopian.pipeline.data.builtin import USEquityPricing
@@ -30,10 +37,10 @@ def make_pipeline():
     # Base universe set to the Q1500US.
     base_universe = Q1500US()
 
-    # 10-day close price average.
+    # 30-day close price average.
     mean_30 = ExponentialWeightedMovingAverage(inputs=[USEquityPricing.close], window_length=30, mask=base_universe, decay_rate = 0.9)
 
-    # 30-day close price average.
+    # 120-day close price average.
     mean_120 = ExponentialWeightedMovingAverage(inputs=[USEquityPricing.close], window_length=120, mask=base_universe, decay_rate = 0.9)
 
     percent_difference = (mean_30 - mean_120) / mean_120
