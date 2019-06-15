@@ -1,3 +1,3 @@
-## **Blog at andreybabynin.com**
+## **Blog at https://medium.com/@andreybabynin**
 
-##### Dedicated to various python scripts relating to finance and data analysis in economics
+
